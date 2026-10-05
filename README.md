@@ -5,9 +5,10 @@ A lightweight CLI tool for inspecting disk usage and scanning log files for erro
 ## Status
 ✅ Core CLI, CI pipeline, and contribution workflow in place. Actively adding features.
 
-## Features (planned)
+## Features
 - Disk usage inspection with threshold alerts
 - Log file scanning for ERROR/WARNING patterns
+- `--json` output on both commands for CI/scripting use
 
 ## License
 MIT — see [LICENSE](LICENSE)
