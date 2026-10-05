@@ -45,3 +45,20 @@ def test_scan_log_no_issues():
         assert result.warning_count == 0
     finally:
         os.remove(path)
+
+
+def test_scan_log_result_json_serializable():
+    """Confirm LogScanResult fields are plain types that json.dumps can handle."""
+    import json
+    path = _write_temp_log(["ERROR: test failure"])
+    try:
+        result = scan_log(path)
+        payload = {
+            "error_count": result.error_count,
+            "warning_count": result.warning_count,
+            "last_errors": result.last_errors,
+        }
+        # Should not raise
+        json.dumps(payload)
+    finally:
+        os.remove(path)
