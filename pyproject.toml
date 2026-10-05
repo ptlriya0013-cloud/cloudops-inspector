@@ -1,0 +1,11 @@
+[project]
+name = "cloudops-inspector"
+version = "0.1.0"
+description = "CLI tool for disk usage and log inspection"
+requires-python = ">=3.9"
+
+[project.scripts]
+inspect-cli = "cloudops_inspector.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
