@@ -12,8 +12,10 @@ def main():
 
     disk_parser = subparsers.add_parser("disk", help="Inspect disk usage")
     disk_parser.add_argument("--mount", default="C:\\", help="Mount/drive to inspect")
-    disk_parser.add_argument("--threshold", type=float, default=80.0,
-                              help="Usage percent threshold to flag")
+    disk_parser.add_argument(
+        "--threshold", type=float, default=80.0,
+        help="Usage percent threshold to flag",
+    )
 
     logs_parser = subparsers.add_parser("logs", help="Scan a log file")
     logs_parser.add_argument("path", help="Path to the log file")
@@ -25,7 +27,7 @@ def main():
         print(f"Mount: {usage.mount}")
         print(f"Total: {usage.total_gb} GB | Used: {usage.used_gb} GB ({usage.percent_used}%)")
         if check_threshold(usage, args.threshold):
-            print(f"⚠️  WARNING: usage exceeds {args.threshold}% threshold!")
+            print(f"WARNING: usage exceeds {args.threshold}% threshold!")
             sys.exit(1)
 
     elif args.command == "logs":

@@ -17,8 +17,12 @@ def get_disk_usage(mount: str = "C:\\") -> DiskUsage:
     total_gb = total / (1024 ** 3)
     used_gb = used / (1024 ** 3)
     percent_used = round((used / total) * 100, 1)
-    return DiskUsage(mount=mount, total_gb=round(total_gb, 2),
-                      used_gb=round(used_gb, 2), percent_used=percent_used)
+    return DiskUsage(
+        mount=mount,
+        total_gb=round(total_gb, 2),
+        used_gb=round(used_gb, 2),
+        percent_used=percent_used,
+    )
 
 
 def check_threshold(usage: DiskUsage, threshold: float) -> bool:
